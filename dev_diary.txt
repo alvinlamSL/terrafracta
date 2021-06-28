@@ -1,0 +1,105 @@
+===========
+TERRAFRACTA
+dev diary
+===========
+By: Alvin Lam
+
+============
+24 June 2021
+
+- INTRO:
+  - Hi! This is the start of the development of Terrafracta
+  - Terrafracta is a game based on Transarctica (kind of like Snowpiercer?)
+  - You play as driver of a train which travels around broken pieces of Earth floating in space
+  - Interactive "checkpoints" are placed all around the map;
+    - these places allow users to collect resources / trade / upgrade or repair their trains
+  - Beware of hostile trains or hostile settlements that will try to attack you
+  - Oxygen / Electricity / Speed are the resources you have to manage
+    - On top of these basic resources, you have food to feed your crew and electronics to repair your train
+
+- Creating the Foundation
+  - The game will be created on ReactJS (I find it easier to work with)
+  - I created the app with "npx create-react-app"
+  - Now I'm cleaning up all the unnecessary codes in "src" folder
+  - BUG: ran into a bug when running "npm start" seems to be caused by eslint version in node_modules
+    - Fixed it by changing the eslint version in package.json and re-running "npm install"
+
+- Setting the Theme
+  - I used the Dark theme that was provided by Devias Kit Pro
+    - The white background was hurting my eyes
+  - To setup the Dark theme, I needed to copy over a few things from the Devias Kit
+    - (1) The ThemeProvider; I removed the "light" and "unicorn" themes
+    - (2) The GlobalStyles; dunno why this was required but without it, the main div wouldn't extend to the bottom
+    - (3) The layout; technically this wasn't copied from Devias Kit, but it followed the design pattern in Devias kit's "layouts"
+
+- Centering Page Content
+  - I realised the page content was aligned to the left
+  - To fix this, I imported the "Page" component from Devias
+  - I also wrapped the actual content inside a box and a container
+
+- Window Resize Response
+  - When the window resizes, the game elements stay the same size
+  - Need to fix this;
+    - To detect window resizing, use a "window.addEventListener" wrapped in a hook
+
+- Designing the Map Component
+  - The first thing I will design is the map component
+  - The map componenet will be a React component that allows me to display a hex / rect grid on a canvas element
+  - The map component should accept a width and height which allows to to determine how big the map is
+  - The map component should accept a zoom value which determines how much of the map to show
+  - The map component should accept a view value which determines which part of the map to show
+  - The map component should accept children, which will determine what to draw on the map
+  - Since this is the first component that I am making, I created a component folder
+    - All new components will be placed into the component folder from now on
+  - Using <svg/> tags with the viewBox property seems to be the optimal way to implement the map component
+    - Got the idea from https://blog.logrocket.com/make-any-svg-responsive-with-this-react-component/
+    - The viewbox property allows the user to control the zoom and view location
+
+- The Map
+  - The map module will display where the train is, where checkpoints are, where other trains are located
+  - The map is made up of square grids; each grid represents a portion of the track
+  - There are a few track types (basic / advance / fork):
+    - Basic track types:
+      - Left to right (ew)
+      - Top to bottom (ns)
+      - bottom-left to top-right (swne)
+      - top-left to bottom-right (nwse)
+    - Advance track types:
+      - left to top-right (wne)
+      - left to bottom-right (wse)
+      - right to top-left (enw)
+      - right to bottom-left (esw)
+  - I'm pausing this update on 24 June 2021 until the map component is done
+
+
+============
+27 June 2021
+
+- Memoizing Map Grids
+  - I noticed that when I changed the viewbox parameters of the parent SVG component
+    the entired Grid gets re-rendered, which slows down the scrolling / panning functions
+  - To resolve this, I have "memoized" the Grid component using React.memo
+
+- Map Component (drawing grids)
+  - Wanted to edit the way grids are drawn
+  - On 24 June 2021, I created the grids to be drawn based on the pixel height of the map
+    - i.e, if the map was 1000 pixels tall and the grid is 10 pixels in length,
+      the number of grid rows = 1000 / 10
+  - But I'm thinking now that should change; the user should provide the number of grids instead
+    and the map component should calculate how many pixels
+
+- Map Component (panning and zooming)
+  - The next part of the map component that I shall implement is the movement and zoom functions
+  - I believe the map component should inherently have its own movement and zoom capabilities
+
+- Map Component (zooming)
+  - I have implemented the zooming function using the "onWheel" event in the parent SVG element
+  - When a wheel scroll is detected, the viewbox will increase or decrease its width and height by
+    a fixed amount per scroll
+
+=============
+28 June 2021
+
+- Map Component (zooming)
+  - I want to make the zooming more intuitive by having the map zoom towards the location of
+    the mouse cursor
