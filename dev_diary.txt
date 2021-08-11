@@ -4,8 +4,8 @@ dev diary
 ===========
 By: Alvin Lam
 
-============
-24 June 2021
+===========
+24 JUN 2021
 
 - INTRO:
   - Hi! This is the start of the development of Terrafracta
@@ -69,11 +69,11 @@ By: Alvin Lam
       - left to bottom-right (wse)
       - right to top-left (enw)
       - right to bottom-left (esw)
-  - I'm pausing this update on 24 June 2021 until the map component is done
+  - I'm pausing this update on 24 JUN 2021 until the map component is done
 
 
-============
-27 June 2021
+===========
+27 JUN 2021
 
 - Memoizing Map Grids
   - I noticed that when I changed the viewbox parameters of the parent SVG component
@@ -82,7 +82,7 @@ By: Alvin Lam
 
 - Map Component (drawing grids)
   - Wanted to edit the way grids are drawn
-  - On 24 June 2021, I created the grids to be drawn based on the pixel height of the map
+  - On 24 JUN 2021, I created the grids to be drawn based on the pixel height of the map
     - i.e, if the map was 1000 pixels tall and the grid is 10 pixels in length,
       the number of grid rows = 1000 / 10
   - But I'm thinking now that should change; the user should provide the number of grids instead
@@ -97,9 +97,230 @@ By: Alvin Lam
   - When a wheel scroll is detected, the viewbox will increase or decrease its width and height by
     a fixed amount per scroll
 
-=============
-28 June 2021
+===========
+29 JUN 2021
+
+- Development was delayed cause the laptop died (Ubuntu black screen)
+  - Booted the laptop using a USB Ubuntu boot disk (google rufus)
+  - Remember to set the persistent storage to 0 when using Rufus!
+  - Managed to backup my data with the boot disk
+  - Couldn't restore the old ubuntu OS, so just reinstalled ubuntu again
 
 - Map Component (zooming)
   - I want to make the zooming more intuitive by having the map zoom towards the location of
     the mouse cursor
+  - Found the calculations in https://gamedev.stackexchange.com/a/9344
+  - Tweaked the calculations a little to fit my codes
+
+===========
+30 JUN 2021
+
+- Map Componenet (panning)
+  - The map component should allow users to pan by clicking and dragging
+    the map
+
+===========
+04 JUL 2021
+
+- Track Sprites
+  - Tried drawing some of the track sprites using SVG
+  - Remember, no need to be perfect now!
+  - Taken from 24 JUN Entry:
+    - Basic track types:
+      - Left to right (ew)
+      - Top to bottom (ns)
+      - bottom-left to top-right (swne)
+      - top-left to bottom-right (nwse)
+    - Advance track types:
+      - left to top-right (wne)
+      - left to bottom-right (wse)
+      - right to top-left (enw)
+      - right to bottom-left (esw)
+      - top to bottom-left (nsw)
+      - top to bottom-right (nse)
+      - bottom to top-left (snw)
+      - bottom to top-right (sne)
+
+===========
+05 JUL 2021
+
+- Game Context
+  - To handle the storage and processing of game data/logic, I have decided
+    to use the REACT useContext pattern (this is similar to REDUX)
+  - I am referring to the context design in Devias Kit as reference for this
+  - Created a "GameContext" in the "contexts" folder
+    - This "GameContext" will handle game logic updates and also centralise
+      the storage of game data across components
+  - Create a "useGame" hook in the "hooks" folder
+    - Not sure how useful it is, but following the useContext pattern in
+      Devias Kit (seperate the components from direct contact with the
+      context)
+
+- Navigate View
+  - This view is where the map is displayed
+  - I'm creating this now so that I can use the useGame hook
+  - The desgin pattern is similar to that used in Devias Kit; the views are
+    exported in an "index.js" file with subcomponents located in the same
+    folder
+
+===========
+06 JUL 2021
+
+- Track Sprites (Edit)
+  - I edited the SVG to account for the border around each grid
+  - Turns out if the SVG's <rect/> width and height are 16 and the border width
+    is 1, the 1st and 16th pixels are the border
+
+- Track Sprites (render)
+  - Now that the sprites have been drawn on SVG, it is time to render them
+    on the map
+  - First I shall create a JSON file to let the app know the size of the map
+    and the location of tiles on the map
+
+===========
+14 JUL 2021
+
+- GameContext (init game map)
+  - I have created a JSON file with the map data
+  - Now I need to init the map in the GameContext before starting the game
+    - The init process will involve fetching data from the JSON file in the public folder
+    - The JSON data will then be parsed and stored in the GameContext
+
+- Dynamic importing
+  - Tried using React.lazy to load the sprite but for some reason it doesn't
+    load; the site will hang
+  - Instead, if I simply put the public folder path in the href param of the
+    <use/> element, it will render properly; see example below:
+
+      <use href={`${process.env.PUBLIC_URL}/sprites/tracks/enw.svg#enw`}
+
+===========
+17 JUL 2021
+
+- Accidentally deleted the track svg folder, but managed to redraw the svg without much problem
+
+- Dynamic importing
+  - Tried the dynamic importing method again today, but somehow the sprites did not render
+  - Seems like I need to give the svg an ID in order to render using the <use/> tag
+  - Note the "id" in the <g/> tag below
+
+      <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+        <g id="enw">
+          <title>ENW</title>
+          <rect x="0" y="0" width="100" height="100" fill="white"/>
+          <line x1="15" y1="8" x2="8" y2="8" stroke="white" />
+          <line x1="8" y1="8" x2="1" y2="1" stroke="white" />
+        </g>
+      </svg>
+
+  - The "id" will then correspond to the "#<id>" in the <use/> tag as follows
+
+      <use href="/path/to/sprite/thesprite.svg#enw" />
+
+============
+18 JUL 2021
+
+- NavigateMap (render track tiles)
+  - Today I'll implement the functions required to display the track tiles
+    on the navigate map
+  - Currently these functions lie within the NavigateMap view but perhaps
+    one day I should port them over to the GameMap component itself? (TODO)
+  - First the NavigateMap should get the gameMap data from the GameContext
+  - Next, the NavigateMap should render the TrackTile children based on the
+    tiles stored in the gameMap
+  - Next, the NavigateMap view will pass the TrackTiles to the GameMap component
+
+===========
+19 JUL 2021
+
+- NavigateMap (render character train)
+  - Now we have the tracks rendered, it's time to render the train itself
+  - QUESTION: should each carriage in the train be given its own x,y coordinates
+    parameters? Or should only the train head be given the x,y coordinates?
+  - Right now, let's only render the train head
+  - The head shall be made of 2 rectangles; each rectangle has a length of 6
+    pixels and a width of 4 pixels, and one pixel space between the rectangles
+  - Decided to make one of the rectangles a circle instead, having two rectangles
+    makes it hard to tell where the train is facing
+
+- NagivateMap (calculating train position)
+  - To render the train sprite, there is a need to calculate the position of the
+    sprite on the map
+  - I have decided to use the following steps
+    - (1) Determine the progress of the train component on the tile
+    - (2) Determine the facing of the train component
+      (this depends on the direction of travel of the train)
+    - (3) Determine the type of track that the train is on ("ew" or "ns"?)
+    - (4) Based on (1) and (4), calculate where the front of the component should be on
+          the tile
+    - (5) Calculate the difference between (4) and the natural sprite position
+    - (6) Add (5) to the SVG transformation
+
+
+===========
+06 AUG 2021
+
+- Note to self
+  - Big gap in dev work cause of busy work schedule
+  - Need to find a way to squeeze out some time for this
+  - More focus??
+
+- Calculating Train Position
+  - Let's finish this!
+  - Find a way to calculate position of train sprite
+
+===========
+08 AUG 2021
+
+- Calculating Train Position
+  - I realised that the best way to check if train is reverse
+    is to simply check whether the current direction contains
+    "w" or "s"
+  - Since x and y values increase in the south-east direction,
+    if the facing is westward or northward, you can reverse the
+    x or y calculations respectively (i.e. 16 - x)
+
+===========
+09 AUG 2021
+
+- Happy national day!
+
+- Calulating Train Position
+  - Train pos calculation is done!
+  - Decided to calculate the actual in-map position of the train
+    component in the train calculation function; which means
+    adding the offsets due to the train's row and column position
+
+- Initialising Game State
+  - /gameLogic/initialiseGameState.js
+  - The game state includes the player's train components,
+    the player's train stats (speed, hp, etc)
+  - See /public/gameStates/default.json
+
+- Train movement
+  - Let's try making the train move
+  - First we need to give it a speed parameter; this will be
+    part of the "playerTrainStats" in the gameState
+
+===========
+10 AUG 2021
+
+- Train Movement
+  - Managed to make the train move!
+  - Debugging log
+    - Most issues came from deciding the direction of the train
+    - Must remember, on a "nsw" track, a train does not actually
+      move "n"; it moves "ne" when it's not moving "sw"
+
+- Game Looping
+  - Game loops jerkily
+    - REMEMBER! The amount of progress made by the game depends
+      on the "delta time" (time between two loops)
+
+===========
+11 AUG 2021
+
+- Train Stats UI
+  - Time to display the train stats
+  - Follow devias-kit design; top bar shows HP / Energy, left
+    bar is the navigation

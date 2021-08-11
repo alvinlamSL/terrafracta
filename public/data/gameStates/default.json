@@ -1,0 +1,27 @@
+{
+  "playerTrainStats": {
+    "speed": 2
+  },
+  "playerTrain": [
+    {
+      "id":0,
+      "type": "head",
+      "prevTile": {
+        "col": 19,
+        "row": 18,
+        "type": "tracks",
+        "name": "enw"
+      },
+      "currTile": {
+        "col": 18,
+        "row": 17,
+        "type": "tracks",
+        "name": "nse"
+      },
+      "x": 336,
+      "y": 168,
+      "direction": "w",
+      "progress": 0.1
+    }
+  ]
+}

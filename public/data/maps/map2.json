@@ -1,0 +1,354 @@
+{
+  "cols": 50,
+  "rows": 20,
+  "tiles": [
+    {
+      "col": 20,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 21,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 22,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 23,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 24,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 25,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 26,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 27,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 28,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 29,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 30,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 31,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 32,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 33,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 34,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 35,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 36,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 37,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 38,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 39,
+      "row": 10,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 19,
+      "row": 10,
+      "type": "tracks",
+      "name": "esw"
+    },
+    {
+      "col": 40,
+      "row": 10,
+      "type": "tracks",
+      "name": "wse"
+    },
+    {
+      "col": 18,
+      "row": 11,
+      "type": "tracks",
+      "name": "sne"
+    },
+    {
+      "col": 41,
+      "row": 11,
+      "type": "tracks",
+      "name": "snw"
+    },
+    {
+      "col": 18,
+      "row": 12,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 41,
+      "row": 12,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 18,
+      "row": 13,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 41,
+      "row": 13,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 18,
+      "row": 14,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 41,
+      "row": 14,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 18,
+      "row": 15,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 41,
+      "row": 15,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 18,
+      "row": 16,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 41,
+      "row": 16,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 18,
+      "row": 17,
+      "type": "tracks",
+      "name": "nse"
+    },
+    {
+      "col": 19,
+      "row": 18,
+      "type": "tracks",
+      "name": "enw"
+    },
+    {
+      "col": 41,
+      "row": 17,
+      "type": "tracks",
+      "name": "nsw"
+    },
+    {
+      "col": 40,
+      "row": 18,
+      "type": "tracks",
+      "name": "wne"
+    },
+    {
+      "col": 20,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 21,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 22,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 23,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 24,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 25,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 26,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 27,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 28,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 29,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 30,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 31,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 32,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 33,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 34,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 35,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 36,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 37,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 38,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 39,
+      "row": 18,
+      "type": "tracks",
+      "name": "ew"
+    }
+  ]
+}
