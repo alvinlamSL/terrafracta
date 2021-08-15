@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: 'flex',
     overflow: 'hidden',
-    height: `calc(100% - ${topBarHeight}px)`,
+    height: `calc(100% - ${topBarHeight - 10}px)`,
     paddingLeft: navBarWidth
   },
   contentContainer: {
