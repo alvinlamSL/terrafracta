@@ -125,8 +125,8 @@ GameMap.propTypes = {
   rows: PropTypes.number,
   gridSize: PropTypes.number,
   children: PropTypes.node,
-  height: PropTypes.number,
-  width: PropTypes.number
+  height: PropTypes.any,
+  width: PropTypes.any
 };
 
 Grids.propTypes = {

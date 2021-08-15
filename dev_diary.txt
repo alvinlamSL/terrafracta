@@ -324,3 +324,11 @@ By: Alvin Lam
   - Time to display the train stats
   - Follow devias-kit design; top bar shows HP / Energy, left
     bar is the navigation
+
+===========
+14 AUG 2021
+
+- Train stats UI
+  - The navbar and topbar are up
+  - Time to put the stats into the top bar
+

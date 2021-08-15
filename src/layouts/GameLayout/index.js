@@ -2,21 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import useWindowSize from '../../hooks/useWindowSize';
+import NavBar from './NavBar';
+import TopBar from './TopBar';
+import { navBarWidth, topBarHeight } from './constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    display: 'flex',
     height: '100vh',
     overflow: 'hidden',
     width: '100%',
   },
   wrapper: {
     display: 'flex',
-    flex: '1 1 auto',
     overflow: 'hidden',
-    paddingTop: 64,
-    paddingLeft: 256
+    height: `calc(100% - ${topBarHeight}px)`,
+    paddingLeft: navBarWidth
   },
   contentContainer: {
     display: 'flex',
@@ -48,6 +49,8 @@ const GameLayout = ({ children }) => {
         width: layoutWidth
       }}
     >
+      <NavBar />
+      <TopBar />
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
           <div className={classes.content}>
