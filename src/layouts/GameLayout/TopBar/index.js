@@ -47,17 +47,11 @@ const TopBar = () => {
               <Typography>
                 Energy
               </Typography>
-              <LinearProgressWithLabel
-                variant="determinate"
-                value={energy}
-              />
+              <LinearProgressWithLabel value={energy} />
               <Typography>
                 Fuel
               </Typography>
-              <LinearProgressWithLabel
-                variant="determinate"
-                value={fuel}
-              />
+              <LinearProgressWithLabel value={fuel} />
             </div>
           </Grid>
           <Grid

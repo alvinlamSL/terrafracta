@@ -332,3 +332,19 @@ By: Alvin Lam
   - The navbar and topbar are up
   - Time to put the stats into the top bar
 
+===========
+15 AUG 2021
+
+- Train Controls
+  - Time to put in the speed indicator and
+    acceleration control
+
+===========
+26 AUG 2021
+
+- Game Loop
+  - Game loop calculations should be calculated AFTER the
+    action dispatch in the GameContext; since the "state"
+    before the dispatch is not the latest state
+  - Game loop reducer action SHOULD NOT affect the entire
+    "gamestate" variable; (KIV changes to this)

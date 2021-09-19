@@ -6,8 +6,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import initialiseGame from 'src/gameLogic/initialiseGame';
-import updatePlayerTrain from 'src/gameLogic/updatePlayerTrain';
 import moment from 'moment';
+import gameLoop from 'src/gameLogic/gameLoop';
 
 const initialGameState = {
   gridSize: 16,
@@ -26,8 +26,17 @@ const reducer = (state, action) => {
       return { ...state, gameMap, gameState };
     }
     case 'UPDATE_TRAIN_MOVE': {
-      const { gameState } = action.payload;
+      const { deltaTime } = action.payload;
+      const { gameState } = gameLoop(state, deltaTime);
       return { ...state, gameState };
+    }
+    case 'UPDATE_TRAIN_ACCEL': {
+      const { acceleration } = action.payload;
+      const newGameState = { ...state.gameState };
+      const newPlayerTrainStats = { ...newGameState.playerTrainStats };
+      newPlayerTrainStats.acceleration = acceleration;
+      newGameState.playerTrainStats = newPlayerTrainStats;
+      return { ...state, gameState: newGameState };
     }
     default: {
       return { ...state };
@@ -36,32 +45,12 @@ const reducer = (state, action) => {
 };
 
 const GameContext = createContext({
-  ...initialGameState
+  ...initialGameState,
+  updateAcceleration: () => { }
 });
-
-// This is the game loop, the game mechanics
-// are all controlled from here
-const gameLoop = (state, deltaTime) => {
-  const { gameMap, gameState, gridSize } = state;
-  const { playerTrain, playerTrainStats } = gameState;
-  const { speed } = playerTrainStats;
-
-  const newGameState = {
-    ...gameState,
-    playerTrain: updatePlayerTrain(
-      deltaTime,
-      speed,
-      playerTrain,
-      gridSize,
-      gameMap
-    )
-  };
-  return { gameState: newGameState };
-};
 
 export const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
-  // const [loopStart, setLoop] = useState(false);
   const [loopTime, setLoopTime] = useState(moment());
 
   useEffect(() => {
@@ -87,10 +76,9 @@ export const GameProvider = ({ children }) => {
       const newLoopTime = moment();
       if (state.gameState.playerTrain) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
-        const { gameState } = gameLoop(state, deltaTime);
         dispatch({
           type: 'UPDATE_TRAIN_MOVE',
-          payload: { gameState }
+          payload: { deltaTime }
         });
       }
       setLoopTime(newLoopTime);
@@ -99,10 +87,16 @@ export const GameProvider = ({ children }) => {
     setTimeout(mGameLoop, 200);
   }, [loopTime]);
 
+  const updateAcceleration = (acceleration) => dispatch({
+    type: 'UPDATE_TRAIN_ACCEL',
+    payload: { acceleration }
+  });
+
   return (
     <GameContext.Provider
       value={{
         ...state,
+        updateAcceleration
       }}
     >
       {children}

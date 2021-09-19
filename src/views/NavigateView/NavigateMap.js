@@ -7,8 +7,7 @@ import TrackTiles from './TrackTiles';
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: 'calc(100% - 256px)',
-    backgroundColor: 'green'
+    height: '100%',
   }
 }));
 

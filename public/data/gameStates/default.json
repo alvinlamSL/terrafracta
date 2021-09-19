@@ -1,11 +1,19 @@
 {
   "playerTrainStats": {
-    "speed": 2
+    "speed": 2,
+    "maxSpeed": 10,
+    "energy": 70,
+    "fuel": 100,
+    "acceleration": 0,
+    "maxAcceleration": 3,
+    "decceleration": 0,
+    "totalWeight": 10
   },
   "playerTrain": [
     {
       "id":0,
       "type": "head",
+      "weight": 10,
       "prevTile": {
         "col": 19,
         "row": 18,
