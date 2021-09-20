@@ -25,7 +25,7 @@ const reducer = (state, action) => {
       const { gameMap, gameState } = action.payload;
       return { ...state, gameMap, gameState };
     }
-    case 'UPDATE_TRAIN_MOVE': {
+    case 'UPDATE_GAME_LOOP': {
       const { deltaTime } = action.payload;
       const { gameState } = gameLoop(state, deltaTime);
       return { ...state, gameState };
@@ -77,7 +77,7 @@ export const GameProvider = ({ children }) => {
       if (state.gameState.playerTrain) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
-          type: 'UPDATE_TRAIN_MOVE',
+          type: 'UPDATE_GAME_LOOP',
           payload: { deltaTime }
         });
       }

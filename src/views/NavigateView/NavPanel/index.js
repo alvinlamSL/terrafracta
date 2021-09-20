@@ -29,7 +29,7 @@ const NavPanel = () => {
     speed,
     maxSpeed,
     acceleration = 0,
-    maxAcceleration
+    maxAcceleration,
   } = playerTrainStats || {};
 
   return (
@@ -46,7 +46,7 @@ const NavPanel = () => {
             <Typography>Speed</Typography>
             <LinearProgressWithLabel
               value={(speed / maxSpeed) * 100}
-              label={speed}
+              label={speed.toFixed(1)}
               suffix="kmh"
             />
           </div>
@@ -63,6 +63,7 @@ const NavPanel = () => {
               max={maxAcceleration}
               label={acceleration.toFixed(1)}
               onChange={updateAcceleration}
+              step={0.05}
               suffix="kmh2"
             />
           </div>

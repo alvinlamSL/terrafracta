@@ -12,6 +12,7 @@ const SliderWithLabel = ({
   onChange,
   min,
   max,
+  step,
   suffix,
   ...rest
 }) => {
@@ -20,7 +21,7 @@ const SliderWithLabel = ({
       <Box width="100%" mr={1}>
         <Slider
           defaultValue={0}
-          step={0.1}
+          step={step || 0.1}
           value={value}
           marks
           min={min || 0}
@@ -46,6 +47,7 @@ SliderWithLabel.propTypes = {
   onChange: PropTypes.func,
   min: PropTypes.number,
   max: PropTypes.number,
+  step: PropTypes.number,
   suffix: PropTypes.string
 };
 

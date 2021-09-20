@@ -366,3 +366,7 @@ By: Alvin Lam
   - Looks really smooth now!
   - Note that "requestAnimationFrame" stops when the window
     is out of focus or minimised
+
+- Update Train Speed
+  - Added new function which calculates train speed based on
+    its current speed, its weight, and its acceleration
