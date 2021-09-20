@@ -4,7 +4,6 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
-import LinearProgressWithLabel from 'src/components/LinearProgressWithLabel';
 import useGame from 'src/hooks/useGame';
 import SliderWithLabel from 'src/components/SliderWithLabel';
 
@@ -26,8 +25,6 @@ const NavPanel = () => {
   const { gameState, updateAcceleration } = useGame();
   const { playerTrainStats } = gameState || {};
   const {
-    speed,
-    maxSpeed,
     acceleration = 0,
     maxAcceleration,
   } = playerTrainStats || {};
@@ -38,19 +35,6 @@ const NavPanel = () => {
         container
         spacing={3}
       >
-        <Grid
-          item
-          xs={4}
-        >
-          <div className={classes.speedBar}>
-            <Typography>Speed</Typography>
-            <LinearProgressWithLabel
-              value={(speed / maxSpeed) * 100}
-              label={speed.toFixed(1)}
-              suffix="kmh"
-            />
-          </div>
-        </Grid>
         <Grid
           item
           xs={4}

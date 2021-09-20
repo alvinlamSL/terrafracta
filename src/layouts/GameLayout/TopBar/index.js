@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridItem: {
     minWidth: 150,
-    maxWidth: 200
+    width: '80%'
   }
 }));
 
@@ -29,7 +29,12 @@ const TopBar = () => {
   const classes = useStyles();
   const { gameState } = useGame();
   const { playerTrainStats } = gameState || {};
-  const { energy, fuel } = playerTrainStats || {};
+  const {
+    energy,
+    fuel,
+    speed,
+    maxSpeed
+  } = playerTrainStats || {};
 
   return (
     <div className={classes.topBar}>
@@ -52,6 +57,21 @@ const TopBar = () => {
                 Fuel
               </Typography>
               <LinearProgressWithLabel value={fuel} />
+            </div>
+          </Grid>
+          <Grid
+            item
+            xs={4}
+          >
+            <div className={classes.gridItem}>
+              <Typography>
+                Speed
+              </Typography>
+              <LinearProgressWithLabel
+                value={(speed / maxSpeed) * 100}
+                label={speed.toFixed(2)}
+                suffix="kmh"
+              />
             </div>
           </Grid>
           <Grid

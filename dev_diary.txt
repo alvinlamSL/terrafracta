@@ -370,3 +370,11 @@ By: Alvin Lam
 - Update Train Speed
   - Added new function which calculates train speed based on
     its current speed, its weight, and its acceleration
+
+===========
+21 SEP 2021
+
+- Layout
+  - Moved speed indicator to the top bar
+  - Bottom bar only for controllables
+
