@@ -348,3 +348,21 @@ By: Alvin Lam
     before the dispatch is not the latest state
   - Game loop reducer action SHOULD NOT affect the entire
     "gamestate" variable; (KIV changes to this)
+
+===========
+19 SEP 2021
+
+- Game Loop
+  - The game loop doesn't update properly when the window is
+    minimized or out of focus
+  - This is an issue with the "settimeout" function
+  - To try "requestAnimationFrame" instead
+
+===========
+20 SEP 2021
+
+- Game Loop
+  - Replaced "settimeout" with "requestAnimationFrame"
+  - Looks really smooth now!
+  - Note that "requestAnimationFrame" stops when the window
+    is out of focus or minimised

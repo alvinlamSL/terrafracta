@@ -70,10 +70,10 @@ export const GameProvider = ({ children }) => {
       mInitialiseGame(); // init the game first
     }
 
-    const mGameLoop = () => {
+    const mGameLoop = (timestamp) => {
       // TODO: I'm using "playerTrain" to determine whether the game has init
       // (should this change?)
-      const newLoopTime = moment();
+      const newLoopTime = moment(timestamp);
       if (state.gameState.playerTrain) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
@@ -84,7 +84,7 @@ export const GameProvider = ({ children }) => {
       setLoopTime(newLoopTime);
     };
 
-    setTimeout(mGameLoop, 200);
+    window.requestAnimationFrame(mGameLoop);
   }, [loopTime]);
 
   const updateAcceleration = (acceleration) => dispatch({
