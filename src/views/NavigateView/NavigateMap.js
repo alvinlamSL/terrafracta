@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 const NavigateMap = ({ ...rest }) => {
   const classes = useStyles();
-  const { gridSize, gameMap, gameState } = useGame();
+  const { gridSize, gameMap, playerTrain } = useGame();
   const { tiles } = gameMap;
 
   return (
@@ -30,9 +30,9 @@ const NavigateMap = ({ ...rest }) => {
           gridSize={gridSize}
           tiles={tiles}
         />
-        {gameState.playerTrain && (
+        {playerTrain && (
           <PlayerTrain
-            train={gameState.playerTrain}
+            train={playerTrain}
           />
         )}
       </GameMap>

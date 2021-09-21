@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 const TopBar = () => {
   const classes = useStyles();
-  const { gameState } = useGame();
-  const { playerTrainStats } = gameState || {};
+  const { playerTrainStats } = useGame();
   const {
-    energy,
-    fuel,
-    speed,
+    energy = 0,
+    fuel = 0,
+    speed = 0,
     maxSpeed
   } = playerTrainStats || {};
 

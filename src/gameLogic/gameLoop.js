@@ -6,22 +6,30 @@ import updateTrainStats from './updateTrainStats';
 const gameLoop = (state, deltaTime) => {
   // console.log(deltaTime);
 
-  const { gameMap, gameState, gridSize } = state;
-  const { playerTrain, playerTrainStats } = gameState;
+  const {
+    gameMap,
+    gridSize,
+    playerTrain,
+    playerTrainStats
+  } = state;
   const { speed } = playerTrainStats;
 
-  const newGameState = {
-    ...gameState,
-    playerTrain: updatePlayerTrain(
-      deltaTime,
-      speed,
-      playerTrain,
-      gridSize,
-      gameMap
-    ),
-    playerTrainStats: updateTrainStats(playerTrainStats, deltaTime)
+  // update the train location
+  const newPlayerTrain = updatePlayerTrain(
+    deltaTime,
+    speed,
+    playerTrain,
+    gridSize,
+    gameMap
+  );
+
+  // update the train stats
+  const newPlayerTrainStats = updateTrainStats(playerTrainStats, deltaTime);
+
+  return {
+    playerTrain: newPlayerTrain,
+    playerTrainStats: newPlayerTrainStats
   };
-  return { gameState: newGameState };
 };
 
 export default gameLoop;

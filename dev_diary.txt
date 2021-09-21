@@ -381,3 +381,9 @@ By: Alvin Lam
 - Braking
   -  Add braking function to allow quick stop of vehicle
 
+===========
+22 SEP 2021
+
+- Edited GameState so that the "playerTrain" and
+  "playerTrainStats" data are not so nested in the game state
+  (see 26 AUG 2021)

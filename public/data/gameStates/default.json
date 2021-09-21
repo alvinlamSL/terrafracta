@@ -7,7 +7,7 @@
     "deccelFactor": 0.01,
     "energy": 70,
     "fuel": 100,
-    "maxSpeed": 2,
+    "maxSpeed": 1,
     "maxAcceleration": 0.5,
     "speed": 0,
     "totalWeight": 10

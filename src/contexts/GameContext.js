@@ -9,6 +9,7 @@ import initialiseGame from 'src/gameLogic/initialiseGame';
 import moment from 'moment';
 import gameLoop from 'src/gameLogic/gameLoop';
 
+let mounted = true;
 const initialGameState = {
   gridSize: 16,
   gameMap: {
@@ -16,27 +17,36 @@ const initialGameState = {
     rows: 40,
     tiles: []
   },
-  gameState: { }
+  playerTrainStats: { },
+  playerTrain: [],
+  initialised: false
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'INITIALISE': {
       const { gameMap, gameState } = action.payload;
-      return { ...state, gameMap, gameState };
+      gameState.initialised = true;
+      return { ...state, gameMap, ...gameState };
     }
     case 'UPDATE_GAME_LOOP': {
       const { deltaTime } = action.payload;
-      const { gameState } = gameLoop(state, deltaTime);
-      return { ...state, gameState };
+      const gameState = gameLoop(state, deltaTime);
+      return { ...state, ...gameState };
+    }
+    case 'UPDATE_TRAIN_STATS': {
+      const newPlayerTrainStats = {
+        ...state.playerTrainStats,
+        ...action.payload
+      };
+      return { ...state, playerTrainStats: newPlayerTrainStats };
     }
     case 'UPDATE_TRAIN_ACCEL': {
-      const { acceleration } = action.payload;
-      const newGameState = { ...state.gameState };
-      const newPlayerTrainStats = { ...newGameState.playerTrainStats };
-      newPlayerTrainStats.acceleration = acceleration;
-      newGameState.playerTrainStats = newPlayerTrainStats;
-      return { ...state, gameState: newGameState };
+      const playerTrainStats = {
+        ...state.playerTrainStats,
+        ...action.payload
+      };
+      return { ...state, playerTrainStats };
     }
     default: {
       return { ...state };
@@ -65,7 +75,7 @@ export const GameProvider = ({ children }) => {
   useEffect(() => {
     // initialise the game here
     // this is done ONCE only
-    if (!state.gameState.playerTrain) {
+    if (!state.initialised) {
       // create an async init function
       // (cause the useEffect function itself CANNOT be async)
       const mInitialiseGame = async () => {
@@ -80,29 +90,30 @@ export const GameProvider = ({ children }) => {
     }
 
     const mGameLoop = (timestamp) => {
-      // TODO: I'm using "playerTrain" to determine whether the game has init
-      // (should this change?)
       const newLoopTime = moment(timestamp);
-      if (state.gameState.playerTrain) {
+      if (state.initialised) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
           type: 'UPDATE_GAME_LOOP',
           payload: { deltaTime }
         });
       }
-      setLoopTime(newLoopTime);
+
+      if (mounted) setLoopTime(newLoopTime);
     };
 
     window.requestAnimationFrame(mGameLoop);
   }, [loopTime]);
 
+  useEffect(() => () => { mounted = false; }, []);
+
   const updateAcceleration = (acceleration) => dispatch({
-    type: 'UPDATE_TRAIN_ACCEL',
+    type: 'UPDATE_TRAIN_STATS',
     payload: { acceleration }
   });
 
   const setBrake = (brake) => dispatch({
-    type: 'SET_TRAIN_BRAKE',
+    type: 'UPDATE_TRAIN_STATS',
     payload: { brake }
   });
 

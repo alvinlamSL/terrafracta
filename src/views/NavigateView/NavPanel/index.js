@@ -23,12 +23,11 @@ const useStyles = makeStyles((theme) => ({
 
 const NavPanel = () => {
   const classes = useStyles();
-  const { gameState, updateAcceleration, setBrake } = useGame();
-  const { playerTrainStats } = gameState || {};
+  const { playerTrainStats, updateAcceleration, setBrake } = useGame();
   const {
     acceleration = 0,
-    maxAcceleration,
-    brake,
+    maxAcceleration = 0,
+    brake = false,
   } = playerTrainStats || {};
 
   return (
