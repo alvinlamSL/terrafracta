@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import useGame from 'src/hooks/useGame';
 import SliderWithLabel from 'src/components/SliderWithLabel';
+import SwitchWithLabel from 'src/components/SwitchWithLabel';
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -22,11 +23,12 @@ const useStyles = makeStyles((theme) => ({
 
 const NavPanel = () => {
   const classes = useStyles();
-  const { gameState, updateAcceleration } = useGame();
+  const { gameState, updateAcceleration, setBrake } = useGame();
   const { playerTrainStats } = gameState || {};
   const {
     acceleration = 0,
     maxAcceleration,
+    brake,
   } = playerTrainStats || {};
 
   return (
@@ -49,6 +51,18 @@ const NavPanel = () => {
               onChange={updateAcceleration}
               step={0.05}
               suffix="kmh2"
+            />
+          </div>
+        </Grid>
+        <Grid
+          item
+          xs={2}
+        >
+          <div className={classes.speedBar}>
+            <Typography>Brake</Typography>
+            <SwitchWithLabel
+              checked={brake}
+              onChange={setBrake}
             />
           </div>
         </Grid>

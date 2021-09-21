@@ -378,3 +378,6 @@ By: Alvin Lam
   - Moved speed indicator to the top bar
   - Bottom bar only for controllables
 
+- Braking
+  -  Add braking function to allow quick stop of vehicle
+

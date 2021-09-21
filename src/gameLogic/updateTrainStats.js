@@ -4,15 +4,20 @@ const updateTrainSpeed = ({
   speed,
   maxSpeed,
   acceleration,
-  totalWeight
+  deccelFactor,
+  totalWeight,
+  brake,
+  brakeDeccel
 }, deltaTime) => {
   // calculate current decceleration
-  const deccelFactor = 0.01;
   const fDecceleration = speed * totalWeight * deccelFactor;
   const decceleration = Math.ceil(fDecceleration * 1000) / 1000;
 
   // calculate new speed
   speed = speed + (acceleration * deltaTime) - (decceleration * deltaTime);
+
+  // if brake is on, subtract brake deccel from speed
+  if (brake) { speed -= brakeDeccel * deltaTime; }
 
   // clamp speed between 0 and maxSpeed
   speed = clamp(speed, 0, maxSpeed);

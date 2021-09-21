@@ -41,12 +41,21 @@ const reducer = (state, action) => {
     default: {
       return { ...state };
     }
+    case 'SET_TRAIN_BRAKE': {
+      const { brake } = action.payload;
+      const newGameState = { ...state.gameState };
+      const newPlayerTrainStats = { ...newGameState.playerTrainStats };
+      newPlayerTrainStats.brake = brake;
+      newGameState.playerTrainStats = newPlayerTrainStats;
+      return { ...state, gameState: newGameState };
+    }
   }
 };
 
 const GameContext = createContext({
   ...initialGameState,
-  updateAcceleration: () => { }
+  updateAcceleration: () => { },
+  setBrake: () => { }
 });
 
 export const GameProvider = ({ children }) => {
@@ -92,11 +101,17 @@ export const GameProvider = ({ children }) => {
     payload: { acceleration }
   });
 
+  const setBrake = (brake) => dispatch({
+    type: 'SET_TRAIN_BRAKE',
+    payload: { brake }
+  });
+
   return (
     <GameContext.Provider
       value={{
         ...state,
-        updateAcceleration
+        updateAcceleration,
+        setBrake,
       }}
     >
       {children}

@@ -1,12 +1,15 @@
 {
   "playerTrainStats": {
-    "speed": 0,
-    "maxSpeed": 2,
+    "acceleration": 0,
+    "brake": false,
+    "brakeDeccel": 1,
+    "decceleration": 0,
+    "deccelFactor": 0.01,
     "energy": 70,
     "fuel": 100,
-    "acceleration": 0,
+    "maxSpeed": 2,
     "maxAcceleration": 0.5,
-    "decceleration": 0,
+    "speed": 0,
     "totalWeight": 10
   },
   "playerTrain": [
