@@ -9,6 +9,7 @@ import {
 const LinearProgressWithLabel = ({
   value,
   label,
+  labelMinWidth = 35,
   suffix,
   ...rest
 }) => {
@@ -21,7 +22,7 @@ const LinearProgressWithLabel = ({
           {...rest}
         />
       </Box>
-      <Box minWidth={35}>
+      <Box minWidth={labelMinWidth}>
         <Typography variant="body2" color="textSecondary">
           {label && `${label}${suffix || '%'}`}
           {!label && `${value}${suffix || '%'}`}
@@ -34,6 +35,7 @@ const LinearProgressWithLabel = ({
 LinearProgressWithLabel.propTypes = {
   value: PropTypes.number,
   label: PropTypes.any,
+  labelMinWidth: PropTypes.number,
   maxValue: PropTypes.number,
   suffix: PropTypes.string
 };

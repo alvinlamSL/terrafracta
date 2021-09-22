@@ -7,10 +7,7 @@ const gameLoop = (state, deltaTime) => {
   // console.log(deltaTime);
 
   const {
-    gameMap,
-    gridSize,
-    playerTrain,
-    playerTrainStats
+    gameMap, gridSize, playerTrain, playerTrainStats
   } = state;
   const { speed } = playerTrainStats;
 

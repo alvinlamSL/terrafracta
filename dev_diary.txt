@@ -387,3 +387,8 @@ By: Alvin Lam
 - Edited GameState so that the "playerTrain" and
   "playerTrainStats" data are not so nested in the game state
   (see 26 AUG 2021)
+
+- PlayerTrainStats
+  - Time to introduce energy drain / gain into the game logic
+  - Energy drains when the train is stationary or too slow
+  - Energy gains when the train is moving fast

@@ -25,10 +25,21 @@ const updateTrainSpeed = ({
   return { speed, decceleration };
 };
 
+const updateTrainEnergy = ({
+  speed, energy, energyDrain, energyGainFactor
+}, deltaTime) => {
+  energy += (speed * energyGainFactor * deltaTime);
+  energy -= (energyDrain * deltaTime);
+  energy = clamp(energy, 0, 100);
+
+  return { energy };
+};
+
 const updateTrainStats = (playerTrainStats, deltaTime) => {
   const newPlayerTrainStats = {
     ...playerTrainStats,
-    ...updateTrainSpeed(playerTrainStats, deltaTime)
+    ...updateTrainSpeed(playerTrainStats, deltaTime),
+    ...updateTrainEnergy(playerTrainStats, deltaTime)
   };
 
   return newPlayerTrainStats;

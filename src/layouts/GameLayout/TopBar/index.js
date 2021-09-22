@@ -52,11 +52,17 @@ const TopBar = () => {
               <Typography>
                 Energy
               </Typography>
-              <LinearProgressWithLabel value={energy} />
+              <LinearProgressWithLabel
+                value={energy.toFixed(2)}
+                labelMinWidth={50}
+              />
               <Typography>
                 Fuel
               </Typography>
-              <LinearProgressWithLabel value={fuel} />
+              <LinearProgressWithLabel
+                value={fuel.toFixed(2)}
+                labelMinWidth={50}
+              />
             </div>
           </Grid>
           <Grid

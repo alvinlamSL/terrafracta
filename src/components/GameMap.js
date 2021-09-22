@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import calculateZoom from 'src/utils/calculateZoom';
 import calculatePan from 'src/utils/calculatePan';
 
+const activateMapControl = false;
 const GameMap = ({
   cols,
   rows,
@@ -63,10 +64,10 @@ const GameMap = ({
       width={width}
       // preserveAspectRatio="xMaxYMid meet"
       viewBox={viewBox && `${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`}
-      onWheel={handleZoom}
-      onMouseDown={handlePan}
-      onMouseMove={handlePan}
-      onMouseUp={handlePan}
+      onWheel={activateMapControl && handleZoom}
+      onMouseDown={activateMapControl && handlePan}
+      onMouseMove={activateMapControl && handlePan}
+      onMouseUp={activateMapControl && handlePan}
     >
       <rect
         x="0"
