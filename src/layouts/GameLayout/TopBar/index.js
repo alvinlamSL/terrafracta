@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   container: {
-    padding: 8
+    padding: 8,
+    marginLeft: 16
   },
   gridItem: {
     minWidth: 150,

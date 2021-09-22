@@ -1,4 +1,4 @@
-const navBarWidth = 160;
+const navBarWidth = 0;
 const topBarHeight = 120;
 
 export {

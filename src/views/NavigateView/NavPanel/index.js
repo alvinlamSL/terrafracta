@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     width: '100%',
     height: '100%',
-    padding: 8
+    padding: 8,
+    paddingLeft: 16
   },
   speedBar: {
     padding: 16
