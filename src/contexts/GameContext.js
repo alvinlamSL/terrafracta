@@ -19,6 +19,7 @@ const initialGameState = {
   },
   playerTrainStats: { },
   playerTrain: [],
+  isDead: false,
   initialised: false
 };
 
@@ -27,7 +28,11 @@ const reducer = (state, action) => {
     case 'INITIALISE': {
       const { gameMap, gameState } = action.payload;
       gameState.initialised = true;
+      gameState.isDead = false;
       return { ...state, gameMap, ...gameState };
+    }
+    case 'RESTART_GAME': {
+      return { ...state, initialised: false };
     }
     case 'UPDATE_GAME_LOOP': {
       const { deltaTime } = action.payload;
@@ -65,17 +70,19 @@ const reducer = (state, action) => {
 const GameContext = createContext({
   ...initialGameState,
   updateAcceleration: () => { },
-  setBrake: () => { }
+  setBrake: () => { },
+  restartGame: () => { }
 });
 
 export const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
   const [loopTime, setLoopTime] = useState(moment());
+  const { initialised, isDead } = state;
 
   useEffect(() => {
     // initialise the game here
     // this is done ONCE only
-    if (!state.initialised) {
+    if (!initialised) {
       // create an async init function
       // (cause the useEffect function itself CANNOT be async)
       const mInitialiseGame = async () => {
@@ -91,7 +98,7 @@ export const GameProvider = ({ children }) => {
 
     const mGameLoop = (timestamp) => {
       const newLoopTime = moment(timestamp);
-      if (state.initialised) {
+      if (initialised && !isDead) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
           type: 'UPDATE_GAME_LOOP',
@@ -117,12 +124,15 @@ export const GameProvider = ({ children }) => {
     payload: { brake }
   });
 
+  const restartGame = () => dispatch({ type: 'RESTART_GAME' });
+
   return (
     <GameContext.Provider
       value={{
         ...state,
         updateAcceleration,
         setBrake,
+        restartGame
       }}
     >
       {children}

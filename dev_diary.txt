@@ -392,3 +392,10 @@ By: Alvin Lam
   - Time to introduce energy drain / gain into the game logic
   - Energy drains when the train is stationary or too slow
   - Energy gains when the train is moving fast
+
+===========
+23 SEP 2021
+
+- End Game
+  - To add a "game over" screen when energy runs to zero
+  - Added a restart function to the "game over" screen

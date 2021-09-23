@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import useGame from 'src/hooks/useGame';
 import useWindowSize from '../../hooks/useWindowSize';
 import NavBar from './NavBar';
 import TopBar from './TopBar';
 import { navBarWidth, topBarHeight } from './constants';
+import GameOverDialog from './GameOverDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +38,7 @@ const minHeight = 500;
 
 const GameLayout = ({ children }) => {
   const classes = useStyles();
+  const { isDead, restartGame } = useGame();
 
   const windowSize = useWindowSize();
   const layoutHeight = Math.max(windowSize.height, minHeight);
@@ -49,6 +52,10 @@ const GameLayout = ({ children }) => {
         width: layoutWidth
       }}
     >
+      <GameOverDialog
+        open={isDead}
+        onConfirm={() => restartGame()}
+      />
       <NavBar />
       <TopBar />
       <div className={classes.wrapper}>
