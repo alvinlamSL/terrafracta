@@ -1,0 +1,5 @@
+===========
+24 SEP 2021
+
+- The 'INITIALISE' function in GameContext gets
+  called multiple times when the page first loads
