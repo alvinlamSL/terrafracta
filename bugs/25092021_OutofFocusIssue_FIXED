@@ -1,0 +1,6 @@
+===========
+25 SEP 2021
+
+- The GameContext timer continues to run while the web page
+  is out of focus; this causes a problem when returning to focus
+  as the deltatime becomes excessively large

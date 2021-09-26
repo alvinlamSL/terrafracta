@@ -5,6 +5,8 @@ import updateTrainStats from './updateTrainStats';
 // are all controlled from here
 const gameLoop = (state, deltaTime) => {
   // console.log(deltaTime);
+  // game loop should only accept if deltaTime less than 0.3s
+  if (deltaTime > 0.3) return ({ });
 
   const {
     gameMap, gridSize, playerTrain, playerTrainStats
