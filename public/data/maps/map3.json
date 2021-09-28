@@ -1,0 +1,444 @@
+{
+  "cols": 30,
+  "rows": 20,
+  "tiles": [
+    {
+      "col": 10,
+      "row": 3,
+      "type": "structures",
+      "name": "fuel_station_ew"
+    },    
+    {
+      "col": 5,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 6,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 7,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 8,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 9,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 10,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 11,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 12,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 13,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 14,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 15,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 16,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 17,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 18,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 19,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 20,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 21,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 22,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 23,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 24,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 25,
+      "row": 3,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 5,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 6,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 7,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 8,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 9,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 10,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 11,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 12,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 13,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 14,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 15,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 16,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 17,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 18,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 19,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 20,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 21,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 22,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 23,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 24,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 25,
+      "row": 17,
+      "type": "tracks",
+      "name": "ew"
+    },
+    {
+      "col": 3,
+      "row": 5,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 6,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 7,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 8,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 9,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 10,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 11,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 12,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 13,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 14,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 3,
+      "row": 15,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 5,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 6,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 7,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 8,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 9,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 10,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 11,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 12,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 13,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 14,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 27,
+      "row": 15,
+      "type": "tracks",
+      "name": "ns"
+    },
+    {
+      "col": 4,
+      "row": 3,
+      "type": "tracks",
+      "name": "esw"
+    },
+    {
+      "col": 3,
+      "row": 4,
+      "type": "tracks",
+      "name": "sne"
+    },
+    {
+      "col": 4,
+      "row": 17,
+      "type": "tracks",
+      "name": "enw"
+    },
+    {
+      "col": 3,
+      "row": 16,
+      "type": "tracks",
+      "name": "nse"
+    },
+    {
+      "col": 26,
+      "row": 3,
+      "type": "tracks",
+      "name": "wse"
+    },
+    {
+      "col": 27,
+      "row": 4,
+      "type": "tracks",
+      "name": "snw"
+    },
+    {
+      "col": 26,
+      "row": 17,
+      "type": "tracks",
+      "name": "wne"
+    },
+    {
+      "col": 27,
+      "row": 16,
+      "type": "tracks",
+      "name": "nsw"
+    }
+  ]
+}
