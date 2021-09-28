@@ -35,11 +35,27 @@ const updateTrainEnergy = ({
   return { energy };
 };
 
-const updateTrainStats = (playerTrainStats, deltaTime) => {
+const updateTrainFuel = ({
+  fuel, speed, acceleration, fuelDrainFactor
+}, playerTrain, deltaTime) => {
+  const trainHead = playerTrain.find((component) => component.type === 'head');
+  const isFuelStation = trainHead.currStruct?.name?.includes('fuel_station');
+  if (isFuelStation && speed === 0) {
+    fuel += trainHead.currStruct.fuelRate;
+  }
+
+  fuel -= (acceleration * fuelDrainFactor * deltaTime);
+  fuel = clamp(fuel, 0, 100);
+
+  return { fuel };
+};
+
+const updateTrainStats = (playerTrainStats, playerTrain, deltaTime) => {
   const newPlayerTrainStats = {
     ...playerTrainStats,
     ...updateTrainSpeed(playerTrainStats, deltaTime),
-    ...updateTrainEnergy(playerTrainStats, deltaTime)
+    ...updateTrainEnergy(playerTrainStats, deltaTime),
+    ...updateTrainFuel(playerTrainStats, playerTrain, deltaTime)
   };
 
   return newPlayerTrainStats;

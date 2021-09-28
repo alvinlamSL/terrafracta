@@ -1,0 +1,11 @@
+<svg width="16" height="32" xmlns="http://www.w3.org/2000/svg">
+  <g id="fuel_station_ew">
+    <title>FUEL STATION</title>
+    <circle cx="8" cy="24" r="5" stroke="gainsboro" />
+    <circle cx="8" cy="24" r="5" fill="brown" />
+    <rect
+      x="3" y="2" width="10" height="16" rx="3"
+      fill="brown" stroke="gainsboro" stroke-width="0.5"
+    />
+  </g>
+</svg>

@@ -23,7 +23,7 @@ const gameLoop = (state, deltaTime) => {
   );
 
   // update the train stats
-  const newPlayerTrainStats = updateTrainStats(playerTrainStats, deltaTime);
+  const newPlayerTrainStats = updateTrainStats(playerTrainStats, playerTrain, deltaTime);
 
   // check if the player is dead
   let isDead = false;

@@ -6,7 +6,8 @@
       "col": 10,
       "row": 3,
       "type": "structures",
-      "name": "fuel_station_ew"
+      "name": "fuel_station_ew",
+      "fuelRate": 10
     },    
     {
       "col": 5,

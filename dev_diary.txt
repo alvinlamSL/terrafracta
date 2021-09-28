@@ -399,3 +399,11 @@ By: Alvin Lam
 - End Game
   - To add a "game over" screen when energy runs to zero
   - Added a restart function to the "game over" screen
+
+===========
+26 SEP 2021
+
+- Refuelling Station
+  - To add a new tile item to the game
+  - This station will refuel the train when the head is
+    on the station tile and speed is 0

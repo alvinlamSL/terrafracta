@@ -39,6 +39,7 @@ const getNextTile = (
 
   return gameMap.tiles.find((tile) => (
     tile.row === row && tile.col === col
+    && tile.type === 'tracks'
   ));
 };
 
@@ -60,12 +61,17 @@ const updateTrainComponent = (
   }
 
   const position = calculateTrainPos(gridSize, prevTile, currTile, progress);
+  const currStruct = gameMap?.tiles.find((tile) => (
+    tile.row === currTile.row && tile.col === currTile.col
+    && tile.type === 'structures'
+  )) || '';
   return ({
     ...trainComponent,
     ...position,
     prevTile,
     currTile,
-    progress
+    currStruct,
+    progress,
   });
 };
 
