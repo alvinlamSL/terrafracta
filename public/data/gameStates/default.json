@@ -21,18 +21,18 @@
       "weight": 10,
       "prevTile": {
         "col": 19,
-        "row": 18,
+        "row": 17,
         "type": "tracks",
-        "name": "enw"
+        "name": "ew"
       },
       "currTile": {
         "col": 18,
         "row": 17,
         "type": "tracks",
-        "name": "nse"
+        "name": "ew"
       },
       "x": 336,
-      "y": 168,
+      "y": 16,
       "direction": "w",
       "progress": 0.1
     }
