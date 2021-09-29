@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import initialiseGame from 'src/gameLogic/initialiseGame';
 import moment from 'moment';
 import gameLoop from 'src/gameLogic/gameLoop';
+import handleKeypress from 'src/gameLogic/handleKeypress';
 
 let mounted = true;
 const initialGameState = {
@@ -46,23 +47,16 @@ const reducer = (state, action) => {
       };
       return { ...state, playerTrainStats: newPlayerTrainStats };
     }
-    case 'UPDATE_TRAIN_ACCEL': {
+    case 'HANDLE_KEYPRESS': {
+      const { keypress } = action.payload;
       const playerTrainStats = {
         ...state.playerTrainStats,
-        ...action.payload
+        ...handleKeypress(keypress, state.playerTrainStats)
       };
       return { ...state, playerTrainStats };
     }
     default: {
       return { ...state };
-    }
-    case 'SET_TRAIN_BRAKE': {
-      const { brake } = action.payload;
-      const newGameState = { ...state.gameState };
-      const newPlayerTrainStats = { ...newGameState.playerTrainStats };
-      newPlayerTrainStats.brake = brake;
-      newGameState.playerTrainStats = newPlayerTrainStats;
-      return { ...state, gameState: newGameState };
     }
   }
 };
@@ -112,7 +106,16 @@ export const GameProvider = ({ children }) => {
     window.requestAnimationFrame(mGameLoop);
   }, [loopTime]);
 
-  useEffect(() => () => { mounted = false; }, []);
+  // Use this for actions that should only be done ONCE
+  useEffect(() => {
+    window.addEventListener('keypress', (event) => {
+      dispatch({
+        type: 'HANDLE_KEYPRESS',
+        payload: { keypress: event.key }
+      });
+    });
+    return () => { mounted = false; };
+  }, []);
 
   const updateAcceleration = (acceleration) => dispatch({
     type: 'UPDATE_TRAIN_STATS',
