@@ -418,3 +418,6 @@ By: Alvin Lam
   - Hotkey information added to "acceleration" and "brake"
     interfaces
 
+- Tidy up codes
+  - GameLayout TopBar energy and fuel display
+    - "toFixed" should be given to label instead of value
