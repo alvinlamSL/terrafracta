@@ -42,7 +42,7 @@ const NavPanel = () => {
           xs={4}
         >
           <div className={classes.speedBar}>
-            <Typography>Acceleration</Typography>
+            <Typography>Acceleration (Q / E)</Typography>
             <SliderWithLabel
               value={acceleration}
               min={0}
@@ -59,7 +59,7 @@ const NavPanel = () => {
           xs={2}
         >
           <div className={classes.speedBar}>
-            <Typography>Brake</Typography>
+            <Typography>Brake (R)</Typography>
             <SwitchWithLabel
               checked={brake}
               onChange={setBrake}

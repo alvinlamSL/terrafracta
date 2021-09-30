@@ -415,3 +415,6 @@ By: Alvin Lam
   - Use hotkeys to control acceleration and brakes
   - Use "window.addEventListener" to listen for hotkey pressed
   - Event listener to be set ONCE in the GameContext
+  - Hotkey information added to "acceleration" and "brake"
+    interfaces
+
