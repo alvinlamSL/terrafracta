@@ -421,3 +421,7 @@ By: Alvin Lam
 - Tidy up codes
   - GameLayout TopBar energy and fuel display
     - "toFixed" should be given to label instead of value
+
+- Change refuelling logic
+  - Instead of checking the name of the structure, check
+    whether the structure has a "fuelRate" parameter

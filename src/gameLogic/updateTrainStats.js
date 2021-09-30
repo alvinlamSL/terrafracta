@@ -39,8 +39,8 @@ const updateTrainFuel = ({
   fuel, speed, acceleration, fuelDrainFactor
 }, playerTrain, deltaTime) => {
   const trainHead = playerTrain.find((component) => component.type === 'head');
-  const isFuelStation = trainHead.currStruct?.name?.includes('fuel_station');
-  if (isFuelStation && speed === 0) {
+  const fuelRate = trainHead.currStruct?.fuelRate;
+  if (fuelRate && speed === 0) {
     fuel += trainHead.currStruct.fuelRate;
   }
 
