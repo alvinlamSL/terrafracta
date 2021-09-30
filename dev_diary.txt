@@ -425,3 +425,6 @@ By: Alvin Lam
 - Change refuelling logic
   - Instead of checking the name of the structure, check
     whether the structure has a "fuelRate" parameter
+
+- Fixed issue where using hotkey to increase acceleration has
+  no limit

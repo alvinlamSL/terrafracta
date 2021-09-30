@@ -1,14 +1,20 @@
+import { clamp } from 'lodash';
+
 const handleKeypress = (
   keypress,
   playerTrainStats
 ) => {
   switch (keypress) {
     case 'q': {
-      const acceleration = playerTrainStats.acceleration - 0.05;
+      const { maxAcceleration } = playerTrainStats;
+      let { acceleration } = playerTrainStats;
+      acceleration = clamp(acceleration - 0.05, 0, maxAcceleration);
       return { acceleration };
     }
     case 'e': {
-      const acceleration = playerTrainStats.acceleration + 0.05;
+      const { maxAcceleration } = playerTrainStats;
+      let { acceleration } = playerTrainStats;
+      acceleration = clamp(acceleration + 0.05, 0, maxAcceleration);
       return { acceleration };
     }
     case 'r': {
