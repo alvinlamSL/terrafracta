@@ -7,81 +7,49 @@
       "row": 18,
       "type": "structures",
       "name": "main_base_sw",
-      "oxygenRate": 10,
-      "energyRate": 10
+      "oxygenRate": 4,
+      "energyRate": 0
     },
     {
-      "col": 12,
+      "col": 11,
       "row": 18,
       "type": "structures",
       "name": "main_base_se",
-      "oxygenRate": 10,
-      "energyRate": 10
-    },
-    {
-      "col": 12,
-      "row": 17,
-      "type": "structures",
-      "name": "main_base_e",
-      "oxygenRate": 10,
-      "energyRate": 10
+      "oxygenRate": 4,
+      "energyRate": 0
     },
     {
       "col": 10,
       "row": 17,
       "type": "structures",
       "name": "main_base_w",
-      "oxygenRate": 10,
-      "energyRate": 10
-    },
-    {
-      "col": 11,
-      "row": 16,
-      "type": "structures",
-      "name": "main_base_n",
-      "oxygenRate": 10,
-      "energyRate": 10
-    },
-    {
-      "col": 11,
-      "row": 18,
-      "type": "structures",
-      "name": "main_base_s",
-      "oxygenRate": 10,
-      "energyRate": 10
+      "oxygenRate": 4,
+      "energyRate": 0
     },
     {
       "col": 11,
       "row": 17,
       "type": "structures",
-      "name": "main_base",
-      "oxygenRate": 10,
-      "energyRate": 10
+      "name": "main_base_e",
+      "oxygenRate": 4,
+      "energyRate": 0
     },
     {
       "col": 10,
       "row": 16,
       "type": "structures",
       "name": "main_base_nw",
-      "oxygenRate": 10,
-      "energyRate": 10
+      "oxygenRate": 4,
+      "energyRate": 0
     },
     {
-      "col": 12,
+      "col": 11,
       "row": 16,
       "type": "structures",
       "name": "main_base_ne",
-      "oxygenRate": 10,
-      "energyRate": 10
-    },
-    {
-      "col": 10,
-      "row": 3,
-      "type": "structures",
-      "name": "oxygen_station_ew",
-      "oxygenRate": 10,
-      "energyRate": 10
-    },    
+      "oxygenRate": 4,
+      "energyRate": 0
+    }, 
     {
       "col": 5,
       "row": 3,

@@ -35,6 +35,7 @@ const TopBar = () => {
     oxygen = 0,
     maxOxygen = 0,
     speed = 0,
+    decceleration,
     maxSpeed
   } = playerTrainStats || {};
 
@@ -91,6 +92,7 @@ const TopBar = () => {
             xs={4}
           >
             TEST2
+            {` ${decceleration}`}
           </Grid>
         </Grid>
       )}

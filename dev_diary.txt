@@ -445,3 +445,9 @@ By: Alvin Lam
     - Fuel used may not be oxygen; depends on "fuelType" parameter
   - Energy will now be an absolute value and max energy will not be
     locked at 100 (can be updgraded)
+
+- Balance energy and fuel drain so that the test map is "challenging"
+  - Calculations:
+    - User has enough fuel (oxygen) to make 2 rounds around the track
+      at moderate acceleration
+    - User has enough energy to last 25s without moving the train

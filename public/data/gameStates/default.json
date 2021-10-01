@@ -1,21 +1,21 @@
 {
   "playerTrainStats": {
-    "acceleration": 0.5,
+    "acceleration": 0,
+    "maxAcceleration": 0.5,
     "brake": false,
     "brakeDeccel": 1,
     "decceleration": 0,
     "deccelFactor": 0.012,
     "energy": 15,
-    "maxEnergy": 100,
-    "energyDrain": 0.5,
-    "energyGainFactor": 1,
-    "fuelDrainFactor": 0.01,
+    "maxEnergy": 25,
+    "energyDrain": 1,
+    "energyGainFactor": 0.6,
+    "fuelDrainFactor": 1.5,
     "fuelType": "oxygen",
     "maxSpeed": 3,
-    "maxAcceleration": 0.5,
-    "oxygen": 30,
-    "maxOxygen": 50,
-    "speed": 3,
+    "oxygen": 20,
+    "maxOxygen": 30,
+    "speed": 0,
     "totalWeight": 10
   },
   "playerTrain": [
@@ -24,13 +24,13 @@
       "type": "head",
       "weight": 10,
       "prevTile": {
-        "col": 19,
+        "col": 11,
         "row": 17,
         "type": "tracks",
         "name": "ew"
       },
       "currTile": {
-        "col": 18,
+        "col": 10,
         "row": 17,
         "type": "tracks",
         "name": "ew"
