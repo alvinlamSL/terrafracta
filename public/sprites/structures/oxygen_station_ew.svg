@@ -1,6 +1,6 @@
 <svg width="16" height="32" xmlns="http://www.w3.org/2000/svg">
-  <g id="fuel_station_ew">
-    <title>FUEL STATION</title>
+  <g id="oxygen_station_ew">
+    <title>OXYGEN STATION</title>
     <circle cx="8" cy="24" r="5" stroke="gainsboro" />
     <circle cx="8" cy="24" r="5" fill="brown" />
     <rect

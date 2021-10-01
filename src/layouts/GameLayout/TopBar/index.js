@@ -31,7 +31,9 @@ const TopBar = () => {
   const { playerTrainStats } = useGame();
   const {
     energy = 0,
-    fuel = 0,
+    maxEnergy = 0,
+    oxygen = 0,
+    maxOxygen = 0,
     speed = 0,
     maxSpeed
   } = playerTrainStats || {};
@@ -53,17 +55,19 @@ const TopBar = () => {
                 Energy
               </Typography>
               <LinearProgressWithLabel
-                value={energy}
-                label={energy.toFixed(2)}
-                labelMinWidth={50}
+                value={(energy / maxEnergy) * 100}
+                label={`${energy.toFixed(2)} / ${maxEnergy}`}
+                suffix=" J"
+                labelMinWidth={100}
               />
               <Typography>
-                Fuel
+                Oxygen
               </Typography>
               <LinearProgressWithLabel
-                value={fuel}
-                label={fuel.toFixed(2)}
-                labelMinWidth={50}
+                value={(oxygen / maxOxygen) * 100}
+                label={`${oxygen.toFixed(2)} / ${maxOxygen}`}
+                suffix=" m3"
+                labelMinWidth={100}
               />
             </div>
           </Grid>

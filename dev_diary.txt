@@ -435,3 +435,13 @@ By: Alvin Lam
     - Very cool tool
     - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
   - Add re-energising logic
+
+- Change fuel / energy logic
+  - Fuel is now renamed as "oxygen"
+    - Maximum oxygen is now an absolute value and not locked at
+      100 (can be upgraded)
+    - Oxygen has more use than just fuel
+    - Future plans; oxygen will be used up by crew members
+    - Fuel used may not be oxygen; depends on "fuelType" parameter
+  - Energy will now be an absolute value and max energy will not be
+    locked at 100 (can be updgraded)
