@@ -1,0 +1,12 @@
+===========
+01 OCT 2021
+
+- TODO List:
+  - To add more "carriages" to the train
+  - To change the GameMap tile structure to a hash map
+  - To change the way tiles point to the previous / next
+    tile
+  - To change fuel / energy representation from percentage
+    to absolute values
+  - Refueling / Re-energising stations should top up individual
+    train components instead of just the train head
