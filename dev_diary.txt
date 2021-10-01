@@ -428,3 +428,10 @@ By: Alvin Lam
 
 - Fixed issue where using hotkey to increase acceleration has
   no limit
+
+- Add a refueling and re-energising "base"
+  - The base tests the usage of a multi-part component
+  - Some of the base sprites are drawn using "paths" in SVG
+    - Very cool tool
+    - https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+  - Add re-energising logic

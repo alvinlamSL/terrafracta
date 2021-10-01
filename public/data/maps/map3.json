@@ -4,10 +4,83 @@
   "tiles": [
     {
       "col": 10,
+      "row": 18,
+      "type": "structures",
+      "name": "main_base_sw",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 12,
+      "row": 18,
+      "type": "structures",
+      "name": "main_base_se",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 12,
+      "row": 17,
+      "type": "structures",
+      "name": "main_base_e",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 10,
+      "row": 17,
+      "type": "structures",
+      "name": "main_base_w",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 11,
+      "row": 16,
+      "type": "structures",
+      "name": "main_base_n",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 11,
+      "row": 18,
+      "type": "structures",
+      "name": "main_base_s",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 11,
+      "row": 17,
+      "type": "structures",
+      "name": "main_base",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 10,
+      "row": 16,
+      "type": "structures",
+      "name": "main_base_nw",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 12,
+      "row": 16,
+      "type": "structures",
+      "name": "main_base_ne",
+      "fuelRate": 10,
+      "energyRate": 10
+    },
+    {
+      "col": 10,
       "row": 3,
       "type": "structures",
       "name": "fuel_station_ew",
-      "fuelRate": 10
+      "fuelRate": 10,
+      "energyRate": 10
     },    
     {
       "col": 5,
