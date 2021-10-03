@@ -1,19 +1,17 @@
 import { clamp } from 'lodash';
 
-const updateTrainSpeed = ({
-  speed,
-  maxSpeed,
-  acceleration,
-  deccelFactor,
-  totalWeight,
-  brake,
-  brakeDeccel
-}, deltaTime) => {
+const updateTrainSpeed = (playerTrainStats, deltaTime) => {
+  let { speed, acceleration } = playerTrainStats;
+  const {
+    totalWeight, deccelFactor, maxSpeed, fuelType, brake, brakeDeccel
+  } = playerTrainStats;
+
   // calculate current decceleration
   const fDecceleration = speed * totalWeight * deccelFactor;
   const decceleration = Math.ceil(fDecceleration * 1000) / 1000;
 
   // calculate new speed
+  acceleration = playerTrainStats[fuelType] === 0 ? 0 : acceleration;
   speed = speed + (acceleration * deltaTime) - (decceleration * deltaTime);
 
   // if brake is on, subtract brake deccel from speed
@@ -26,8 +24,11 @@ const updateTrainSpeed = ({
 };
 
 const updateTrainEnergy = ({
-  speed, energy, maxEnergy, energyDrain, energyGainFactor
+  speed, energy, maxenergy, energyDrain, energyGainFactor,
+  emergencyMode
 }, playerTrain, deltaTime) => {
+  if (emergencyMode) energyGainFactor *= 0.5;
+
   const trainHead = playerTrain.find((component) => component.type === 'head');
   const energyRate = trainHead.currStruct?.energyRate;
   if (energyRate && speed === 0) {
@@ -36,38 +37,52 @@ const updateTrainEnergy = ({
 
   energy += (speed * energyGainFactor * deltaTime);
   energy -= (energyDrain * deltaTime);
-  energy = clamp(energy, 0, maxEnergy);
+  energy = clamp(energy, 0, maxenergy);
 
   return { energy };
 };
 
 const updateTrainOxygen = ({
-  oxygen, maxOxygen, speed, acceleration,
-  fuelType, fuelDrainFactor
+  oxygen, maxoxygen, speed
 }, playerTrain, deltaTime) => {
   const trainHead = playerTrain.find((component) => component.type === 'head');
   const oxygenRate = trainHead.currStruct?.oxygenRate;
   if (oxygenRate && speed === 0) {
-    oxygen += oxygenRate;
+    oxygen += oxygenRate * deltaTime;
   }
 
-  if (fuelType === 'oxygen') {
-    oxygen -= (acceleration * fuelDrainFactor * deltaTime);
-  }
-
-  oxygen = clamp(oxygen, 0, maxOxygen);
+  oxygen = clamp(oxygen, 0, maxoxygen);
   return { oxygen };
 };
 
-const updateTrainStats = (playerTrainStats, playerTrain, deltaTime) => {
-  const newPlayerTrainStats = {
-    ...playerTrainStats,
-    ...updateTrainSpeed(playerTrainStats, deltaTime),
-    ...updateTrainEnergy(playerTrainStats, playerTrain, deltaTime),
-    ...updateTrainOxygen(playerTrainStats, playerTrain, deltaTime)
+const updateTrainFuel = (playerTrainStats, deltaTime) => {
+  const { emergencyMode, acceleration, fuelDrainFactor } = playerTrainStats;
+  let { fuelType } = playerTrainStats;
+
+  if (emergencyMode) fuelType = 'energy';
+  let fuel = playerTrainStats[fuelType];
+  fuel -= acceleration * fuelDrainFactor * deltaTime;
+  fuel = clamp(fuel, 0, playerTrainStats[`max${fuelType}`]);
+
+  return { [fuelType]: fuel };
+};
+
+const updateTrainStats = (
+  pts, // playerTrainStats
+  pt, // playerTrain
+  dt // deltaTime
+) => {
+  // newPlayerTrainStats
+  let npts = {
+    ...pts,
+    ...updateTrainSpeed(pts, dt),
+    ...updateTrainEnergy(pts, pt, dt),
+    ...updateTrainOxygen(pts, pt, dt),
   };
 
-  return newPlayerTrainStats;
+  npts = { ...npts, ...updateTrainFuel(npts, dt) };
+
+  return npts;
 };
 
 export default updateTrainStats;

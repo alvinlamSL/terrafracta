@@ -451,3 +451,17 @@ By: Alvin Lam
     - User has enough fuel (oxygen) to make 2 rounds around the track
       at moderate acceleration
     - User has enough energy to last 25s without moving the train
+
+===========
+02 OCT 2021
+
+- Train should not be able to accelerate when fuel (oxygen) is 0
+- Allow train to go into "emergency" mode
+  - This uses energy to accelerate the train instead of oxygen
+
+- Renamed "max<resource>" from camel-case to all small
+  - This helps dynamic selection of resource
+  - This was used in "updateTrainStats.js" -> "updateTrainFuel"
+
+- Renamed some of the variables in updateTrainStats.js
+  - Made the variable names shorter

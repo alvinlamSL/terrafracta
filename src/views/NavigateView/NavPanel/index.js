@@ -24,11 +24,14 @@ const useStyles = makeStyles((theme) => ({
 
 const NavPanel = () => {
   const classes = useStyles();
-  const { playerTrainStats, updateAcceleration, setBrake } = useGame();
+  const {
+    playerTrainStats, updateAcceleration, updateTrainStats, setBrake
+  } = useGame();
   const {
     acceleration = 0,
     maxAcceleration = 0,
     brake = false,
+    emergencyMode = false,
   } = playerTrainStats || {};
 
   return (
@@ -63,6 +66,18 @@ const NavPanel = () => {
             <SwitchWithLabel
               checked={brake}
               onChange={setBrake}
+            />
+          </div>
+        </Grid>
+        <Grid
+          item
+          xs={2}
+        >
+          <div className={classes.speedBar}>
+            <Typography>E-Mode (T)</Typography>
+            <SwitchWithLabel
+              checked={emergencyMode}
+              onChange={(checked) => updateTrainStats({ emergencyMode: checked })}
             />
           </div>
         </Grid>

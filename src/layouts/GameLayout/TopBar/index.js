@@ -31,9 +31,9 @@ const TopBar = () => {
   const { playerTrainStats } = useGame();
   const {
     energy = 0,
-    maxEnergy = 0,
+    maxenergy = 0,
     oxygen = 0,
-    maxOxygen = 0,
+    maxoxygen = 0,
     speed = 0,
     decceleration,
     maxSpeed
@@ -56,8 +56,8 @@ const TopBar = () => {
                 Energy
               </Typography>
               <LinearProgressWithLabel
-                value={(energy / maxEnergy) * 100}
-                label={`${energy.toFixed(2)} / ${maxEnergy}`}
+                value={(energy / maxenergy) * 100}
+                label={`${energy.toFixed(2)} / ${maxenergy}`}
                 suffix=" J"
                 labelMinWidth={100}
               />
@@ -65,8 +65,8 @@ const TopBar = () => {
                 Oxygen
               </Typography>
               <LinearProgressWithLabel
-                value={(oxygen / maxOxygen) * 100}
-                label={`${oxygen.toFixed(2)} / ${maxOxygen}`}
+                value={(oxygen / maxoxygen) * 100}
+                label={`${oxygen.toFixed(2)} / ${maxoxygen}`}
                 suffix=" m3"
                 labelMinWidth={100}
               />

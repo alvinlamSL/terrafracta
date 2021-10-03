@@ -64,6 +64,7 @@ const reducer = (state, action) => {
 const GameContext = createContext({
   ...initialGameState,
   updateAcceleration: () => { },
+  updateTrainStats: () => { },
   setBrake: () => { },
   restartGame: () => { }
 });
@@ -122,6 +123,11 @@ export const GameProvider = ({ children }) => {
     payload: { acceleration }
   });
 
+  const updateTrainStats = (stats) => dispatch({
+    type: 'UPDATE_TRAIN_STATS',
+    payload: stats
+  });
+
   const setBrake = (brake) => dispatch({
     type: 'UPDATE_TRAIN_STATS',
     payload: { brake }
@@ -134,6 +140,7 @@ export const GameProvider = ({ children }) => {
       value={{
         ...state,
         updateAcceleration,
+        updateTrainStats,
         setBrake,
         restartGame
       }}
