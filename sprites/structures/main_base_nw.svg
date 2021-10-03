@@ -1,0 +1,14 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+  <g id="main_base_nw">
+    <title>MAIN BASE NW</title>
+    <path
+      d="M 2 16 H 16 V 2 A 14 14 0 0 0 2 16"
+      fill="brown"
+    />
+    <path
+      d="M 16 2 A 14 14 0 0 0 2 16"
+      fill="transparent"
+      stroke="white"
+    />
+  </g>
+</svg>

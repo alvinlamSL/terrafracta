@@ -1,0 +1,7 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+  <g id="main_base_n">
+    <title>MAIN BASE N</title>
+    <rect x="0" y="2" width="16" height="14" fill="brown" />
+    <line x1="0" y1="2" x2="16" y2="2" stroke="white" />
+  </g>
+</svg>
