@@ -465,3 +465,15 @@ By: Alvin Lam
 
 - Renamed some of the variables in updateTrainStats.js
   - Made the variable names shorter
+
+===========
+03 OCT 2021
+
+- Welcome to the github pages branch!
+- Had to do a few things to get this published on github pages
+  - See https://github.com/gitname/react-gh-pages
+  - Had to add a "homepage" to package.json
+  - Had to npm install gh-pages
+  - Added a new "predeploy" and "deploy" scripts to package.json
+  - Sprites couldn't load because the folder it reference was rooted
+    (remove the "/" at the start of the folder path)

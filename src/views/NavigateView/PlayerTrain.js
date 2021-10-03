@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TrainComponent = ({ trainComponent }) => {
   const { x, y } = trainComponent;
-  const trainSprite = '/sprites/trains/head.svg#head1';
+  const trainSprite = 'sprites/trains/head.svg#head1';
   // const trainSprite = `/sprites/trains/${type}#${type}`;
   return (
     <g transform={`translate(${x}, ${y})`}>
