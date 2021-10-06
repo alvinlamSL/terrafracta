@@ -470,3 +470,7 @@ By: Alvin Lam
 06 OCT 2021
 
 - Tidy up some stuff
+
+- Added the hotkey for E-mode
+
+- Fix bug where the E-mode doesn't work if fuel (oxygen) is 0

@@ -21,6 +21,10 @@ const handleKeypress = (
       const brake = !playerTrainStats.brake;
       return { brake };
     }
+    case 't': {
+      const emergencyMode = !playerTrainStats.emergencyMode;
+      return { emergencyMode };
+    }
     default: return { };
   }
 };

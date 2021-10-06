@@ -3,15 +3,20 @@ import { clamp } from 'lodash';
 const updateTrainSpeed = (playerTrainStats, deltaTime) => {
   let { speed, acceleration } = playerTrainStats;
   const {
-    totalWeight, deccelFactor, maxSpeed, fuelType, brake, brakeDeccel
+    totalWeight, deccelFactor, maxSpeed, brake, brakeDeccel,
+    emergencyMode
   } = playerTrainStats;
 
   // calculate current decceleration
   const fDecceleration = speed * totalWeight * deccelFactor;
   const decceleration = Math.ceil(fDecceleration * 1000) / 1000;
 
-  // calculate new speed
+  // check whether train has enough fuel to accelerate
+  let { fuelType } = playerTrainStats;
+  fuelType = emergencyMode ? 'energy' : fuelType;
   acceleration = playerTrainStats[fuelType] === 0 ? 0 : acceleration;
+
+  // calculate new speed
   speed = speed + (acceleration * deltaTime) - (decceleration * deltaTime);
 
   // if brake is on, subtract brake deccel from speed
