@@ -465,3 +465,8 @@ By: Alvin Lam
 
 - Renamed some of the variables in updateTrainStats.js
   - Made the variable names shorter
+
+===========
+06 OCT 2021
+
+- Tidy up some stuff

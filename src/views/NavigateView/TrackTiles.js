@@ -10,7 +10,7 @@ const TrackTile = ({ gridSize, tile }) => {
   } = tile;
   const x = col * gridSize;
   const y = row * gridSize;
-  const sprite = `/sprites/${type}/${name}.svg#${name}`;
+  const sprite = `sprites/${type}/${name}.svg#${name}`;
   return (
     <g transform={`translate(${x}, ${y})`}>
       <use href={sprite} />
