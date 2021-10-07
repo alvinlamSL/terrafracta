@@ -1,5 +1,5 @@
 <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
- <g id="esw">
+ <g id="esw" stroke-width="3">
   <title>ESW</title>
   <line x1="15" y1="8" x2="1" y2="15" stroke="white" />
  </g>

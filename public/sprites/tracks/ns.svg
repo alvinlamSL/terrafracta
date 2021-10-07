@@ -1,5 +1,5 @@
 <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
- <g id="ns">
+ <g id="ns" stroke-width="3">
   <title>NS</title>
   <line x1="8" y1="1" x2="8" y2="15" stroke="white" />
  </g>
