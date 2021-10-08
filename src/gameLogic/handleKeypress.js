@@ -25,6 +25,10 @@ const handleKeypress = (
       const emergencyMode = !playerTrainStats.emergencyMode;
       return { emergencyMode };
     }
+    case ' ': {
+      const paused = !playerTrainStats.paused;
+      return { paused };
+    }
     default: return { };
   }
 };

@@ -1,6 +1,6 @@
 {
   "playerTrainStats": {
-    "acceleration": 0,
+    "acceleration": 0.3,
     "maxAcceleration": 0.5,
     "brake": false,
     "brakeDeccel": 1,
@@ -16,7 +16,7 @@
     "maxSpeed": 3,
     "oxygen": 20,
     "maxoxygen": 30,
-    "speed": 0,
+    "speed": 2,
     "totalWeight": 10
   },
   "playerTrain": [

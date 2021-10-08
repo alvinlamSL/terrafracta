@@ -7,6 +7,7 @@ import NavBar from './NavBar';
 import TopBar from './TopBar';
 import { navBarWidth, topBarHeight } from './constants';
 import GameOverDialog from './GameOverDialog';
+import PauseDialog from './pauseDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +39,9 @@ const minHeight = 500;
 
 const GameLayout = ({ children }) => {
   const classes = useStyles();
-  const { isDead, restartGame } = useGame();
+  const {
+    isDead, paused, restartGame, pauseGame
+  } = useGame();
 
   const windowSize = useWindowSize();
   const layoutHeight = Math.max(windowSize.height, minHeight);
@@ -52,6 +55,10 @@ const GameLayout = ({ children }) => {
         width: layoutWidth
       }}
     >
+      <PauseDialog
+        open={paused}
+        onConfirm={() => pauseGame(false)}
+      />
       <GameOverDialog
         open={isDead}
         onConfirm={() => restartGame()}

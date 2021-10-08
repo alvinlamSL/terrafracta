@@ -21,6 +21,7 @@ const initialGameState = {
   playerTrainStats: { },
   playerTrain: [],
   isDead: false,
+  paused: true,
   initialised: false
 };
 
@@ -34,6 +35,9 @@ const reducer = (state, action) => {
     }
     case 'RESTART_GAME': {
       return { ...state, initialised: false };
+    }
+    case 'PAUSE_GAME': {
+      return { ...state, ...action.payload };
     }
     case 'UPDATE_GAME_LOOP': {
       const { deltaTime } = action.payload;
@@ -49,10 +53,15 @@ const reducer = (state, action) => {
     }
     case 'HANDLE_KEYPRESS': {
       const { keypress } = action.payload;
-      const playerTrainStats = {
-        ...state.playerTrainStats,
-        ...handleKeypress(keypress, state.playerTrainStats)
-      };
+      const values = handleKeypress(keypress, state);
+
+      // handle pause keypress
+      if (values.paused !== null) {
+        return { ...state, ...values };
+      }
+
+      // handle everything else
+      const playerTrainStats = { ...state.playerTrainStats, ...values };
       return { ...state, playerTrainStats };
     }
     default: {
@@ -66,13 +75,14 @@ const GameContext = createContext({
   updateAcceleration: () => { },
   updateTrainStats: () => { },
   setBrake: () => { },
-  restartGame: () => { }
+  restartGame: () => { },
+  pauseGame: () => { },
 });
 
 export const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
   const [loopTime, setLoopTime] = useState(moment());
-  const { initialised, isDead } = state;
+  const { initialised, isDead, paused } = state;
 
   useEffect(() => {
     // initialise the game here
@@ -93,7 +103,7 @@ export const GameProvider = ({ children }) => {
 
     const mGameLoop = (timestamp) => {
       const newLoopTime = moment(timestamp);
-      if (initialised && !isDead) {
+      if (initialised && !isDead && !paused) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
           type: 'UPDATE_GAME_LOOP',
@@ -134,6 +144,10 @@ export const GameProvider = ({ children }) => {
   });
 
   const restartGame = () => dispatch({ type: 'RESTART_GAME' });
+  const pauseGame = (nPaused) => dispatch({
+    type: 'PAUSE_GAME',
+    payload: { paused: nPaused }
+  });
 
   return (
     <GameContext.Provider
@@ -142,7 +156,8 @@ export const GameProvider = ({ children }) => {
         updateAcceleration,
         updateTrainStats,
         setBrake,
-        restartGame
+        restartGame,
+        pauseGame,
       }}
     >
       {children}

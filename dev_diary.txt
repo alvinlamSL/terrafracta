@@ -479,3 +479,5 @@ By: Alvin Lam
 07 OCT 2021
 
 - Adjusted stroke-width of tracks
+
+- Add a pause function
