@@ -481,3 +481,10 @@ By: Alvin Lam
 - Adjusted stroke-width of tracks
 
 - Add a pause function
+
+===========
+12 OCT 2021
+
+- Adding the pause function created a bug that disabled all the
+  other hotkeys
+  - Fixed this

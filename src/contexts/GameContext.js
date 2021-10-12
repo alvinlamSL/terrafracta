@@ -53,16 +53,8 @@ const reducer = (state, action) => {
     }
     case 'HANDLE_KEYPRESS': {
       const { keypress } = action.payload;
-      const values = handleKeypress(keypress, state);
-
-      // handle pause keypress
-      if (values.paused !== null) {
-        return { ...state, ...values };
-      }
-
-      // handle everything else
-      const playerTrainStats = { ...state.playerTrainStats, ...values };
-      return { ...state, playerTrainStats };
+      const newState = handleKeypress(keypress, state);
+      return { ...state, ...newState };
     }
     default: {
       return { ...state };
