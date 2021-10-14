@@ -488,3 +488,8 @@ By: Alvin Lam
 - Adding the pause function created a bug that disabled all the
   other hotkeys
   - Fixed this
+
+- Add a "Comms" function
+  - Allows player to talk to stations
+    (maybe even to other trains next time)
+  - Will pause the game when comms is active

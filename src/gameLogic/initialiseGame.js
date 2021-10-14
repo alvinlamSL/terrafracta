@@ -9,7 +9,7 @@ const initialiseGame = async (gridSize) => {
   const { playerTrain, playerTrainStats } = gameState;
   const { speed } = playerTrainStats;
 
-  gameState.playerTrain = updatePlayerTrain(0, speed, playerTrain, gridSize);
+  gameState.playerTrain = updatePlayerTrain(0, speed, playerTrain, gridSize, gameMap);
   return ({ gameMap, gameState });
 };
 

@@ -7,6 +7,7 @@ import {
 import Page from 'src/components/Page';
 import NavigateMap from './NavigateMap';
 import NavPanel from './NavPanel';
+import CommsDialog from './CommsDialog';
 
 const useStyles = makeStyles(() => ({
   page: {
@@ -27,6 +28,7 @@ const NavigateView = () => {
 
   return (
     <Page className={classes.page}>
+      <CommsDialog />
       <Box className={classes.box} mt={3}>
         <Container className={classes.container}>
           <NavigateMap />

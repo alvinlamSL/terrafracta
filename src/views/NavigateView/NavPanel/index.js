@@ -22,16 +22,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const isCommsDisabled = (speed, playerTrain) => {
+  const structComms = playerTrain[0]?.currStruct?.comms;
+  return speed > 0 || !structComms;
+};
+
 const NavPanel = () => {
   const classes = useStyles();
   const {
-    playerTrainStats, updateAcceleration, updateTrainStats, setBrake
+    playerTrainStats, playerTrain,
+    updateAcceleration, updateTrainStats, setBrake
   } = useGame();
   const {
     acceleration = 0,
     maxAcceleration = 0,
     brake = false,
+    comms = false,
     emergencyMode = false,
+    speed = 0,
   } = playerTrainStats || {};
 
   return (
@@ -78,6 +86,19 @@ const NavPanel = () => {
             <SwitchWithLabel
               checked={emergencyMode}
               onChange={(checked) => updateTrainStats({ emergencyMode: checked })}
+            />
+          </div>
+        </Grid>
+        <Grid
+          item
+          xs={2}
+        >
+          <div className={classes.speedBar}>
+            <Typography>Comms (C)</Typography>
+            <SwitchWithLabel
+              checked={comms}
+              onChange={(checked) => updateTrainStats({ comms: checked })}
+              disabled={isCommsDisabled(speed, playerTrain)}
             />
           </div>
         </Grid>

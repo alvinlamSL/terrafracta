@@ -4,6 +4,22 @@
   "tiles": [
     {
       "col": 10,
+      "row": 2,
+      "type": "structures",
+      "name": "trader_n",
+      "oxygenRate": 4,
+      "energyRate": 0
+    },
+    {
+      "col": 10,
+      "row": 3,
+      "type": "structures",
+      "name": "trader_s",
+      "oxygenRate": 4,
+      "energyRate": 0
+    },
+    {
+      "col": 10,
       "row": 18,
       "type": "structures",
       "name": "main_base_sw",
@@ -24,7 +40,8 @@
       "type": "structures",
       "name": "main_base_w",
       "oxygenRate": 4,
-      "energyRate": 0
+      "energyRate": 0,
+      "comms": true
     },
     {
       "col": 11,
@@ -32,7 +49,8 @@
       "type": "structures",
       "name": "main_base_e",
       "oxygenRate": 4,
-      "energyRate": 0
+      "energyRate": 0,
+      "comms": true
     },
     {
       "col": 10,

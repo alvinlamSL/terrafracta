@@ -39,6 +39,19 @@ const handleKeypress = (
         const newPlayerTrainStats = { ...playerTrainStats, emergencyMode };
         return { ...gameState, playerTrainStats: newPlayerTrainStats };
       }
+      case 'c': {
+        const { playerTrain } = gameState;
+        const { speed } = playerTrainStats;
+        if (speed === 0 && playerTrain[0].currStruct?.comms) {
+          const comms = !playerTrainStats.comms;
+          const newPlayerTrainStats = { ...playerTrainStats, comms };
+          return { ...gameState, playerTrainStats: newPlayerTrainStats };
+        }
+
+        // if train is moving, dun do anything
+        // if train engine is not on a comms structure, dun do anything
+        return { };
+      }
       default: return { };
     }
   }

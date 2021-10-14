@@ -21,7 +21,7 @@ const initialGameState = {
   playerTrainStats: { },
   playerTrain: [],
   isDead: false,
-  paused: true,
+  paused: false,
   initialised: false
 };
 
@@ -75,6 +75,7 @@ export const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
   const [loopTime, setLoopTime] = useState(moment());
   const { initialised, isDead, paused } = state;
+  const { comms } = state.playerTrainStats;
 
   useEffect(() => {
     // initialise the game here
@@ -95,7 +96,7 @@ export const GameProvider = ({ children }) => {
 
     const mGameLoop = (timestamp) => {
       const newLoopTime = moment(timestamp);
-      if (initialised && !isDead && !paused) {
+      if (initialised && !isDead && !paused && !comms) {
         const deltaTime = (newLoopTime - loopTime) / 1000; // delta time in seconds
         dispatch({
           type: 'UPDATE_GAME_LOOP',
