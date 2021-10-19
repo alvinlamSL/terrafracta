@@ -7,7 +7,7 @@ const handleKeypress = (
   const { playerTrainStats } = gameState;
 
   // separate logic to handle pausing/unpausing
-  if (keypress === ' ') {
+  if (keypress === ' ' && !playerTrainStats.comms) {
     const paused = !gameState.paused;
     return { paused };
   }

@@ -493,3 +493,8 @@ By: Alvin Lam
   - Allows player to talk to stations
     (maybe even to other trains next time)
   - Will pause the game when comms is active
+
+===========
+19 OCT 2021
+
+- Prevent user from pausing while comms is active
