@@ -498,3 +498,16 @@ By: Alvin Lam
 19 OCT 2021
 
 - Prevent user from pausing while comms is active
+
+===========
+20 OCT 2021
+
+- Prevent user from controlling brake/acceleration while comms
+  active
+
+
+  
+
+- Time to add a "trader"
+  - Trader buys oxygen in exchange for scrap
+  - Scrap can be sold back at base for a new train carriage

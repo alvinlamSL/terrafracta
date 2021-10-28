@@ -1,0 +1,16 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+  <g id="trader_s">
+    <title>Trader S</title>
+    <rect
+      x="2" y="0" width="12" height="11"
+      fill="brown"
+    />
+    <path
+      d="M 2 11 A 1.5 1 0 0 0 14 11"
+      fill="brown" stroke="gainsboro"
+    />
+    <line x1="2" y1="0" x2="2" y2="11" stroke="gainsboro" />
+    <line x1="14" y1="0" x2="14" y2="11" stroke="gainsboro" />
+    </svg>
+  </g>
+</svg>
